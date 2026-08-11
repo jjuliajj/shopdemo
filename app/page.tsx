@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { SDUIRenderer, SDUIPagePayload } from '../components/sdui/SDUIRenderer';
 import { Store, ExternalLink, Zap } from 'lucide-react';
 
-const SERVER_URL = 'http://localhost:3001';
+const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'https://serverdemo-eta.vercel.app';
 
 export default function ShopHomePage() {
   const [sduiPayload, setSduiPayload] = useState<SDUIPagePayload | null>(null);
@@ -79,7 +79,7 @@ export default function ShopHomePage() {
 
           <div className="flex items-center space-x-3">
             <a
-              href="http://localhost:3001"
+              href={SERVER_URL}
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-4 py-2 rounded-xl transition shadow-md shadow-indigo-600/20"
